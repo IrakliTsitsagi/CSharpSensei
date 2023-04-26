@@ -30,7 +30,7 @@ namespace SenseiQuestArrayV2
             Console.WriteLine("miximum ricxvia " + maxi);
 
 
-            int zrda = zrdisMixedvit(masivi);
+            int[] zrda = zrdisMixedvit(masivi);
             Console.Write("zrdis mixedvit ");
             {
                 for (int k = 0; k < masivi.Length; k++)
@@ -38,7 +38,7 @@ namespace SenseiQuestArrayV2
                     Console.Write(masivi[k] + " ");
             }
 
-            int kleba = klebisMixedvit(masivi);
+            int[] kleba = klebisMixedvit(masivi);
             Console.Write("\nklebis mixedvit ");
             {
                 for (int k = 0; k < masivi.Length; k++)
@@ -104,7 +104,7 @@ namespace SenseiQuestArrayV2
         }
 
         // zrdis mixedvit
-        public static int zrdisMixedvit(int[] masivi)
+        public static int[] zrdisMixedvit(int[] masivi)
         {
             int temp = masivi[0];
 
@@ -123,13 +123,13 @@ namespace SenseiQuestArrayV2
                         masivi[j] = temp;
                     }
 
-            return temp;
+            return masivi;
         }
 
 
 
         // klebis mixedvit
-        public static int klebisMixedvit(int[] masivi)
+        public static int[] klebisMixedvit(int[] masivi)
         {
             int temp = masivi[0];
 
@@ -148,7 +148,7 @@ namespace SenseiQuestArrayV2
                         masivi[j] = temp;
                     }
 
-            return temp;
+            return masivi;
         }
 
     }
