@@ -1,4 +1,4 @@
-﻿namespace SenseiQuestArrayV2
+namespace SenseiQuestArrayV2
 {
     internal class Program
     {
@@ -14,19 +14,42 @@
             for (int i = 0; i < masivi.Length; i++)
             {
                 masivi[i] = randNum.Next(min, max);
-                Console.WriteLine(masivi[i]);
+                Console.Write(masivi[i] + " ");
             }
-            ricxvtaJami(masivi, masivi.Length);
-            ricxvtaNamravli(masivi, masivi.Length);
-            minNumber(masivi, masivi.Length);
-            maxNumber(masivi, masivi.Length);
-            zrdisMixedvit(masivi, masivi.Length);
-            klebisMixedvit(masivi, masivi.Length);
+
+            int jami = ricxvtaJami(masivi);
+            Console.WriteLine("\nricxvta jamia " + jami);
+
+            int namravli = ricxvtaNamravli(masivi);
+            Console.WriteLine("ricxvta namravlia " + namravli);
+
+            int mini = minNumber(masivi);
+            Console.WriteLine("minimum ricxvia " + mini);
+
+            int maxi = maxNumber(masivi);
+            Console.WriteLine("miximum ricxvia " + maxi);
+
+
+            int zrda = zrdisMixedvit(masivi);
+            Console.Write("zrdis mixedvit ");
+            {
+                for (int k = 0; k < masivi.Length; k++)
+
+                    Console.Write(masivi[k] + " ");
+            }
+
+            int kleba = klebisMixedvit(masivi);
+            Console.Write("\nklebis mixedvit ");
+            {
+                for (int k = 0; k < masivi.Length; k++)
+
+                    Console.Write(masivi[k] + " ");
+            }
         }
 
 
         // ricxvta jamis metodi
-        public static int ricxvtaJami(int[] masivi, int axali)
+        public static int ricxvtaJami(int[] masivi)
         {
             int jami = 0;
 
@@ -35,12 +58,12 @@
                 jami += masivi[i];
 
             }
-            Console.WriteLine("elementebis jamia " + jami);
+
             return jami;
         }
 
         // ricxvta jamis metodi
-        public static int ricxvtaNamravli(int[] masivi, int axali)
+        public static int ricxvtaNamravli(int[] masivi)
         {
             int namravli = 1;
 
@@ -49,12 +72,12 @@
                 namravli *= masivi[i];
 
             }
-            Console.WriteLine("elementebis namravlia " + namravli);
+
             return namravli;
         }
 
         // min number
-        public static int minNumber(int[] masivi, int axali)
+        public static int minNumber(int[] masivi)
         {
             int minNum = masivi[0];
             for (int i = 0; i < masivi.Length; i++)
@@ -62,13 +85,13 @@
                 if (masivi[i] < minNum)
                     minNum = masivi[i];
             }
-            Console.WriteLine("minimaluri ricxvia " + minNum);
+
             return minNum;
         }
 
 
         // max number
-        public static int maxNumber(int[] masivi, int axali)
+        public static int maxNumber(int[] masivi)
         {
             int maxNum = masivi[0];
             for (int i = 0; i < masivi.Length; i++)
@@ -76,12 +99,12 @@
                 if (masivi[i] > maxNum)
                     maxNum = masivi[i];
             }
-            Console.WriteLine("minimaluri ricxvia " + maxNum);
+
             return maxNum;
         }
 
         // zrdis mixedvit
-        public static int zrdisMixedvit(int[] masivi, int axali)
+        public static int zrdisMixedvit(int[] masivi)
         {
             int temp = masivi[0];
 
@@ -100,19 +123,13 @@
                         masivi[j] = temp;
                     }
 
-            Console.WriteLine("zrdis mixedvit");
-            for (int k = 0; k < masivi.Length; k++)
-            {
-
-                Console.Write(masivi[k] + " ");
-            }
             return temp;
         }
 
 
 
         // klebis mixedvit
-        public static int klebisMixedvit(int[] masivi, int axali)
+        public static int klebisMixedvit(int[] masivi)
         {
             int temp = masivi[0];
 
@@ -131,12 +148,6 @@
                         masivi[j] = temp;
                     }
 
-            Console.WriteLine("\nklebis mixedvit");
-            for (int k = 0; k < masivi.Length; k++)
-            {
-
-                Console.Write(masivi[k] + " ");
-            }
             return temp;
         }
 
