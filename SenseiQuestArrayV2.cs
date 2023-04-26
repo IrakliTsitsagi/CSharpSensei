@@ -35,7 +35,7 @@ namespace SenseiQuestArrayV2
             {
                 for (int k = 0; k < masivi.Length; k++)
 
-                    Console.Write(masivi[k] + " ");
+                    Console.Write(zrda[k] + " ");
             }
 
             int[] kleba = klebisMixedvit(masivi);
@@ -43,7 +43,7 @@ namespace SenseiQuestArrayV2
             {
                 for (int k = 0; k < masivi.Length; k++)
 
-                    Console.Write(masivi[k] + " ");
+                    Console.Write(kleba[k] + " ");
             }
         }
 
