@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 
+//aqaa stringit agdgena
+
 namespace SenseiDavaleba1
 {
     internal class SenseiDavaleba1
