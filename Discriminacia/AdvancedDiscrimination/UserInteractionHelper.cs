@@ -32,13 +32,12 @@ namespace Discriminant
             Console.WriteLine("The discriminant is: " + discriminant);
 
             double[] roots = EquationHelper.CalculateRoots(a, b, c);
-            int numSolutions = EquationHelper.HowManySolution(discriminant);
-            if (numSolutions == 1)
+            if (roots.Length == 1)
             {
                 Console.WriteLine("1 Root");
                 Console.WriteLine("Root: " + roots[0]);
             }
-            else if (numSolutions == 2)
+            else if (roots.Length == 2)
             {
                 Console.WriteLine("2 Roots");
                 Console.WriteLine("Root 1: " + roots[0]);
