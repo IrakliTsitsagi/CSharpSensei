@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -27,18 +27,23 @@ namespace Discriminant
             else { return 1; }
         }
 
-        public static double CalculateSingleRoot(double a, double b)
+        public static double[] CalculateRoots(double a, double b, double c)
         {
-            return -b / (2.0 * a);
-        }
-        public static double[] CalculateTwoRoots(double a, double b, double discriminant)
-        {
-            double root1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
-            double root2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+            double discriminant = CalculateD(a, b, c);
+            int rootCount = HowManySolution(discriminant);
+            if (rootCount == 2)
+            {
+                double root1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+                double root2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
 
-            return new double[] { root1, root2 };
+                return new double[] { root1, root2 };
+            }
+            else if (rootCount == 1)
+            {
+                double root = -b / (2.0 * a);
+                return new double[] { root };
+            }
+            else return new double[0];
         }
-
-       
     }
 }
