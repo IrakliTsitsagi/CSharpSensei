@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.SymbolStore;
 using System.Linq;
@@ -31,26 +31,23 @@ namespace Discriminant
             double discriminant = EquationHelper.CalculateD(a, b, c);
             Console.WriteLine("The discriminant is: " + discriminant);
 
+            double[] roots = EquationHelper.CalculateRoots(a, b, c);
             int numSolutions = EquationHelper.HowManySolution(discriminant);
             if (numSolutions == 1)
             {
-                double root = EquationHelper.CalculateSingleRoot(a, b);
                 Console.WriteLine("1 Root");
-                Console.WriteLine($"Root = {root}");
+                Console.WriteLine("Root: " + roots[0]);
             }
             else if (numSolutions == 2)
             {
-                double[] roots = EquationHelper.CalculateTwoRoots(a, b, discriminant);
                 Console.WriteLine("2 Roots");
-                Console.WriteLine($"First Root = {roots[0]}");
-                Console.WriteLine($"Second Root = {roots[1]}");
+                Console.WriteLine("Root 1: " + roots[0]);
+                Console.WriteLine("Root 2: " + roots[1]);
             }
             else
             {
-                Console.WriteLine("Discriminant is negative, there are no Roots");
+                Console.WriteLine("No Roots found!");
             }
-
         }
-
     }
 }
