@@ -8,46 +8,45 @@ namespace CryptografiaWameba
     public class WriteAndRead
     {
         public string Path { get; set; }
+        public string PathForCode { get; private set; }
 
-        public static void Write(string path, string encryptedText)
+        public WriteAndRead(string path, string pathForCode)
         {
-            using (StreamWriter sw = new StreamWriter(path))
+            Path = path;
+            PathForCode = pathForCode;
+        }
+
+        public void Write(string encryptedText)
+        {
+            using (StreamWriter sw = new StreamWriter(Path))
             {
                 sw.Write(encryptedText);
             }
         }
 
-        public static string Read(string filePath)
+        public string Read()
         {
-            if (File.Exists(filePath))
+            if (File.Exists(Path))
             {
-                return File.ReadAllText(filePath);
+                return File.ReadAllText(Path);
             }
 
             return "";
         }
 
-        public WriteAndRead(string path)
+        public string LoadCodeFromFile()
         {
-            Path = path;
-        }
-
-        public static string LoadCodeFromFile()
-        {
-            string codeFilePath = @"C:\Users\Irakli\OneDrive\Desktop\C#\test\code.txt";
-
-            if (File.Exists(codeFilePath))
+            if (File.Exists(PathForCode))
             {
-                return File.ReadAllText(codeFilePath);
+                return File.ReadAllText(PathForCode);
             }
 
             return "";
         }
 
-        public static void SaveCodeToFile(string code)
+        public void SaveCodeToFile(string code)
         {
-            string codeFilePath = @"C:\Users\Irakli\OneDrive\Desktop\C#\test\code.txt";
-            File.WriteAllText(codeFilePath, code);
+            File.WriteAllText(PathForCode, code);
         }
     }
 }

@@ -7,16 +7,15 @@ namespace CryptografiaWameba
     {
         static void Main(string[] args)
         {
-            Encryption encrypt = new Encryption();
-            Decryption decrypt = new Decryption();
             string filePath = @"C:\Users\Irakli\OneDrive\Desktop\C#\test\kriptoo.txt";
-            WriteAndRead write = new WriteAndRead(filePath);
+            string codeFilePath = @"C:\Users\Irakli\OneDrive\Desktop\C#\test\code.txt";
+
+            WriteAndRead writeOrRead = new WriteAndRead(filePath, codeFilePath);
 
             int shift = 3;
             int choice = -1;
             string code = "";
             string message = "";
-
 
             while (choice != 0)
             {
@@ -40,23 +39,25 @@ namespace CryptografiaWameba
                         code = Console.ReadLine();
                         Console.Write("Enter your message: ");
                         message = Console.ReadLine();
-                        string encryptedText = Encryption.Encrypt(message, shift);
-                        string decryptedText = Decryption.Decrypt(encryptedText, shift);
+
+                        string encryptedText = CryptographyHelper.Encrypt(message, shift);
 
 
-                        WriteAndRead.Write(filePath, encryptedText);
+                        writeOrRead.Write(encryptedText);
                         Console.WriteLine("Message encrypted and written to the file.");
-                        WriteAndRead.SaveCodeToFile(code);
+                        writeOrRead.SaveCodeToFile(code);
                         break;
 
                     case 2:
                         Console.WriteLine("Enter code word to read: ");
                         string codeAgain = Console.ReadLine();
-                        code = WriteAndRead.LoadCodeFromFile();
+                        code = writeOrRead.LoadCodeFromFile();
+
                         if (codeAgain == code)
                         {
-                            string encryptedMessage = WriteAndRead.Read(filePath);
-                            string decryptedMessage = Decryption.Decrypt(encryptedMessage, shift);
+                            string encryptedMessage = writeOrRead.Read();
+                            string decryptedMessage = CryptographyHelper.Decrypt(encryptedMessage, shift);
+
                             Console.WriteLine("Decrypted message: " + decryptedMessage);
                         }
                         else
